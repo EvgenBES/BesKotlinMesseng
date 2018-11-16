@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "440552505587",
+    "firebase_url": "https://beskotlinmasseng.firebaseio.com",
+    "project_id": "beskotlinmasseng",
+    "storage_bucket": "beskotlinmasseng.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:440552505587:android:3fe4b75d76316777",
+        "android_client_info": {
+          "package_name": "com.example.fox.beskotlinmasseng"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "440552505587-ejhmueunvmuqacg9a7cpnini18ak9i5l.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB36POZUHrBEmpoZD38S7gdMiYSSvc6hDM"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

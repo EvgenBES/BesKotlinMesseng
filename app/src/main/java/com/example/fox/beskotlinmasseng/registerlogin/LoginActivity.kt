@@ -1,8 +1,9 @@
-package com.example.fox.beskotlinmasseng
+package com.example.fox.beskotlinmasseng.registerlogin
 
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.util.Log
+import com.example.fox.beskotlinmasseng.R
 import com.google.firebase.auth.FirebaseAuth
 import kotlinx.android.synthetic.main.activity_login.*
 

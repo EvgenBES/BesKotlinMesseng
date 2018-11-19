@@ -60,9 +60,7 @@ class ChatLogActivity : AppCompatActivity() {
                         adapter.add(ChatFromItem(chatMessage.text))
                     } else {
                         adapter.add(ChatToItem(chatMessage.text))
-
-
-                    }
+                   }
                 }
 
             }

@@ -6,18 +6,16 @@ import android.util.Log
 import com.example.fox.beskotlinmasseng.R
 import com.example.fox.beskotlinmasseng.model.ChatMessage
 import com.example.fox.beskotlinmasseng.model.User
+import com.example.fox.beskotlinmasseng.views.ChatFromItem
+import com.example.fox.beskotlinmasseng.views.ChatToItem
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.ChildEventListener
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.FirebaseDatabase
-import com.squareup.picasso.Picasso
 import com.xwray.groupie.GroupAdapter
-import com.xwray.groupie.Item
 import com.xwray.groupie.ViewHolder
 import kotlinx.android.synthetic.main.activity_chat_log.*
-import kotlinx.android.synthetic.main.chat_from_row.view.*
-import kotlinx.android.synthetic.main.chat_to_row.view.*
 
 class ChatLogActivity : AppCompatActivity() {
 
@@ -37,8 +35,6 @@ class ChatLogActivity : AppCompatActivity() {
 
         toUser = intent.getParcelableExtra<User>(NewMessagesActivity.USER_KEY)
         supportActionBar?.title = toUser?.username
-
-//        setupDummData()
 
         listenForMessages()
 
@@ -70,6 +66,8 @@ class ChatLogActivity : AppCompatActivity() {
                     }
                 }
 
+                recyclerview_chat_log.scrollToPosition(adapter.itemCount - 1)
+
             }
 
             override fun onCancelled(p0: DatabaseError) {
@@ -94,7 +92,6 @@ class ChatLogActivity : AppCompatActivity() {
     private fun performSendMessage() {
         val text = edittext_chat_log.text.toString()
         val fromId = FirebaseAuth.getInstance().uid
-
         val user = intent.getParcelableExtra<User>(NewMessagesActivity.USER_KEY)
         val toId = user.uid
 
@@ -124,32 +121,4 @@ class ChatLogActivity : AppCompatActivity() {
 }
 
 
-class ChatFromItem(val text: String, val user: User) : Item<ViewHolder>() {
-    override fun bind(viewHolder: ViewHolder, position: Int) {
-        viewHolder.itemView.message_from_chat.text = text
 
-        val uri = user.profileImageUrl
-        Picasso.get().load(uri).into(viewHolder.itemView.imageview_photo_from_chat)
-    }
-
-    override fun getLayout(): Int {
-        return R.layout.chat_from_row
-    }
-
-}
-
-
-class ChatToItem(val text: String, val user: User) : Item<ViewHolder>() {
-    override fun bind(viewHolder: ViewHolder, position: Int) {
-        viewHolder.itemView.message_to_chat.text = text
-
-        val uri = user.profileImageUrl
-        Picasso.get().load(uri).into(viewHolder.itemView.imageview_photo_to_chat)
-
-    }
-
-    override fun getLayout(): Int {
-        return R.layout.chat_to_row
-    }
-
-}
